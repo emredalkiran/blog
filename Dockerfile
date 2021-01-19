@@ -16,4 +16,4 @@ USER next-docker
 
 EXPOSE 3000
 
-CMD ["pm2-runtime", "npm", "--", "start"]
+CMD ["npm", "start"]
