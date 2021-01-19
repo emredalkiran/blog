@@ -1,18 +1,18 @@
-FROM node:12.20
+FROM node:12-alpine
 
-WORKDIR /blog
+WORKDIR /usr/app/blog
 
 COPY package*.json ./
 
-RUN npm install --global pm2
-
-RUN npm install
+RUN npm install --production
 
 COPY . .
 
 RUN npm run build
 
-RUN adduser --system --no-create-home --disabled-password --disabled-login --group next-docker
+RUN adduser -S -H -D next-docker
+
+USER next-docker
 
 EXPOSE 3000
 
