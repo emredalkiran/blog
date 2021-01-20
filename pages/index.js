@@ -1,64 +1,67 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-
+import Image from 'next/image'
+import Link from 'next/link'
+import Post from './components/post'
 export default function Home() {
+
+  const blogContent = {
+    title: 'How this blog is built',
+    description: 'First part of what this blog is about and how it is built.'
+  }
+
   return (
-    <div className={styles.container}>
+    <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Seldomseendev Blog - Emre Dalkiran</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Hi, I'm Emre. A software engineer who loves to build things." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to my blog!
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+      <main className="main">
+        <h1 className="title">
+          Hi, I&apos;m Emre
+        </h1>     
+        <p className="description">
+          A software engineer who loves to build things
         </p>
-
-        <div className={styles.grid}>
-         
-            <h3>Cool stuff here soon!</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-  
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <div className="card">
+          <Image
+            src="/blog-profile.jpg"
+            alt="Picture of the author"
+            width={250}
+            height={250}
+            className="avatar"
+          />
+          <div className="grid">
+            <a href="https://github.com/emredalkiran" rel='noreferrer' target="_blank" className="link-logo">
+              <img src="/github.svg" alt="Github Logo" className="logo"/>
+            </a>
+            <a href="https://www.linkedin.com/in/emre-dalkiran-140787bb" target="_blank" rel='noreferrer' className="link-logo">
+              <img src="/linkedin.svg" alt="Linkedin Logo" className="logo"/>
+            </a>
+            <a href="https://twitter.com/seldomseenkdg" target="_blank" rel='noreferrer' className="link-logo">
+              <img src="/twitter.svg" alt="Twitter Logo" className="logo"/>
+            </a>
+            <a href="mailto:emre59dalkiran@gmail.com" className="link-logo">
+              <img src="/email.svg" alt="Email Logo" className="logo"/>
+            </a>
+          </div>
         </div>
-      </main>
+        <section className="section">
+          <p className="description">This blog is intended to be a personal space where I would like to write about code, music and some other cool stuff.</p>
+        </section>
+        <section className="section">
+          <h2 className="title ">Latest Posts</h2>
+          <div className="grid">
+            <Link href="/how-this-blog-is-built-1" passHref>
+              <Post content={ blogContent }></Post>
+            </Link>
+          </div>
+        </section>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      </main>
     </div>
   )
 }
