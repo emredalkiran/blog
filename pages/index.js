@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import Post from './components/post'
+import Post from '../components/post'
 export default function Home() {
 
   const blogContent = {
